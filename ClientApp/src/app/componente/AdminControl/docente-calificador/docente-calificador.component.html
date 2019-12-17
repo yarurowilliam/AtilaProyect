@@ -1,0 +1,49 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:#1CD878; color: white;">Gestion de Docentes</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Consulta de Docentes</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-4">
+                    <input [(ngModel)]="searchText" type="text" style="visibility:hidden" class="form-control" placeholder="Consultar por ID y Nombre">
+                </div>
+            </div>
+        <hr>
+        <table class='table table-striped' *ngIf='docentes && docentes.length'>
+            <thead>
+                <tr>
+                <tr>             
+                    <th>#</th>
+                    <th>Identificacion</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Primer Nombre</th>
+                    <th>Segundo Nombre</th>
+                    <th>Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let docente of docentes | filtroConsultaDocente:searchText; index as i" (click)="seleccionar(docente)">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{docente.identificacion}}</td>
+                <td>{{docente.primerApellido}}</td>
+                <td>{{docente.segundoApellido}}</td>
+                <td>{{docente.primerNombre}}</td>
+                <td>{{docente.segundoNombre}}</td>
+                <th>{{docente.rol}}</th>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

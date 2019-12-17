@@ -1,0 +1,127 @@
+
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+        <div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de Docentes</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Registro de Docente</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡El usuario de su cuenta sera su identificación!
+                    </div>
+                    <div class="alert alert-warning">
+                        <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+                    </div>
+
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    
+                    <div class="row separar">
+                        <div class="col-sm-2">
+                            <label>Identificacion:</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" formControlName="identificacion" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.identificacion.errors }" />
+                            <div *ngIf="submitted && f.identificacion.errors" class="invalid-feedback">
+                              <div *ngIf="f.identificacion.errors.required">La identificacion es requerida</div>
+                              <div *ngIf="f.identificacion.errors.minlength">Codigo requiere minimo 3 caracteres</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <label>Tipo:</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <select formControlName="rol" class="form-control">
+                                <option value="Docente">Docente</option>
+                                <option value="Administrador">Administrador</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row separar">
+
+                        <div class="col-sm-2">
+                            <label>Primer Apellido:</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <input type="text" formControlName="primerApellido" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.primerApellido.errors }" />
+                            <div *ngIf="submitted && f.primerApellido.errors" class="invalid-feedback">
+                              <div *ngIf="f.primerApellido.errors.required">El primer apellido es requerido</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <label>Segundo Apellido:</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                                <input formControlName="segundoApellido" class="form-control" placeholder="Digite segundo Apellido"
+                                type="text" />
+                        </div>
+
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                <label>Primer Nombre:</label>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <input type="text" formControlName="primerNombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.primerNombre.errors }" />
+                                <div *ngIf="submitted && f.primerNombre.errors" class="invalid-feedback">
+                                <div *ngIf="f.primerNombre.errors.required">El primer nombre es requerido</div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <label>Segundo Nombre:</label>
+                            </div>
+
+                            <div class="col-sm-4">
+                                    <input formControlName="segundoNombre" class="form-control" placeholder="Digite segundo Nombre"
+                                    type="text" />
+                            </div>
+
+                    </div>
+
+                    <div class="row separar">
+
+                        <div class="col-sm-2">
+                            <label>Correo:</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                                <input type="text" formControlName="correo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" />
+                                <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+                                <div *ngIf="f.correo.errors.required">El correo es requerido</div>
+                                </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <label>Telefono:</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                                <input type="text" formControlName="telefono" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" />
+                                <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+                                <div *ngIf="f.telefono.errors.required">El correo es requerido</div>
+                                </div>
+                        </div>
+
+                        
+                    </div>
+                    <div class="row botonesayuda">
+                        <div class="col-sm-12">
+                                <button class="btn btn-success mr-1" >Register</button>
+                                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                        </div>
+                    </div>
+
+                </form>
+
+                </div>
+            </div>
+        </div>
+    </div>

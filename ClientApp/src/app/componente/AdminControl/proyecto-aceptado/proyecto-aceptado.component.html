@@ -1,0 +1,48 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:#1CD878; color: white;">Gestion de Proyectos</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Proyectos a calificar</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-4">
+                    <input [(ngModel)]="searchText" type="text" style="visibility:hidden" class="form-control" placeholder="Consultar por ID y Nombre">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='proyectos && proyectos.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Codigo</th>
+                    <th>Titulo</th>
+                    <th>Codigo Asignatura</th>
+                    <th>Nombre Asignatura</th>
+                    <th>Estado</th>
+                    <th>Asignar Calificador</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let proyecto of proyectos | filtroConsultaProyecto:searchText; index as i" (click)="seleccionar(proyecto)">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{proyecto.codigo}}</td>
+                <td>{{proyecto.titulo}}</td>
+                <td>{{proyecto.codasig}}</td>
+                <td>{{proyecto.nameasig}}</td>
+                <th style="color: green;">{{proyecto.estado}}</th>
+                <td><button type="button" class="btn btn-warning" routerLink="/asignarcalificador/{{proyecto.codigo}}">Asignar Docente</button></td>   
+            </tr>
+        </tbody>
+        </table>
+        </div>  
+    </div>
+    </div>
+    </div>
+</div>

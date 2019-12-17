@@ -1,0 +1,49 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:#1CD878; color: white;">Gestion de Proyectos</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Mis Proyectos Asignados</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Aqui tiene la lista de proyectos en espera para ser revisados!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-4">
+                    <input [(ngModel)]="searchText" type="text"  style="visibility:hidden" class="form-control" placeholder="Consultar por ID y Nombre">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='proyectos && proyectos.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Codigo</th>
+                    <th>Titulo</th>
+                    <th>ID Asignado</th>
+                    <th>Nombre Asignado</th>
+                    <th>Estado</th>
+                    <th>Revisar</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let proyecto of proyectos | filtroProyectoRevision:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{proyecto.codigo}}</td>
+                <td>{{proyecto.titulo}}</td>
+                <td>{{proyecto.coddocrev}}</td>
+                <td>{{proyecto.namedocrev}}</td>
+                <th style="color: gray;">{{proyecto.estado}}</th>
+                <td><button type="button" class="btn btn-warning" routerLink="/revisarproyecto/{{proyecto.codigo}}">Revisar</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>    
+
+    </div>
+    </div>
+    </div>
+</div>

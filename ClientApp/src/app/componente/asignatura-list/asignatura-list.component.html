@@ -1,0 +1,46 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto;background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color: #1CD878; color: white;">Asignaturas</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Consulta de Asignaturas</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+        <div class="row separar">
+            <div class="col-sm-2">
+                <label>Consultar:</label>
+            </div>  
+            <div class="col-4">
+                <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar por ID y Nombre">
+            </div>
+        </div>
+        <hr>
+        <table class='table table-striped' *ngIf='asignaturas && asignaturas.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Ver</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let asignatura of asignaturas | filtroAsignatura:searchText; index as i" (click)="seleccionar(asignatura)">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{asignatura.id}}</td>
+                <td>{{asignatura.nombreAsignatura}}</td>
+                <td><button type="button" class="btn btn-success" routerLink="/asignaturaedit/{{asignatura.id}}">Gestionar</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

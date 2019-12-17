@@ -1,0 +1,292 @@
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de Cargos</div>
+<div class="panel-body">
+    <div class="row separar">
+        
+        <div class="col-sm-12">
+            <h1 class="textomod">Asignar proyecto a Docente</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Cuidadito!
+            </div>
+            <div *ngIf="proyecto">  
+            <div class="row separar">
+                <div class="col-sm-2">
+                        <label>Codigo Proyecto:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="proyecto.codigo" readonly="readonly" class="form-control" placeholder="Cargando ID..."
+                        type="text" />
+                </div>
+            </div>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Rubrica Codigo:</label>
+                    </div>
+        
+                        <div class="col-sm-4">
+                            <input [(ngModel)]="proyecto.rubricacodigo" type="text" readonly formControlName="rubricacodigo" (blur)="getRubrica()" class="form-control" (dblclick)="openModalRubrica()" [ngClass]="{ 'is-invalid':  f.rubricacodigo.errors }" />
+                            <div *ngIf="submitted && f.rubricacodigo.errors" class="invalid-feedback">
+                                <div *ngIf="f.rubricacodigo.errors.required">El codigo es requerida</div>
+                            </div>
+                          <hr>
+                         <button class="btn btn-success" type="button" (click)="openModalRubrica()">Buscar</button>
+                        
+                        </div>
+        
+                        <div class="col-sm-2">
+                            <label>Nombre Rubrica:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                            <input [(ngModel)]="proyecto.rubricanombre" type="text" readonly formControlName="rubricanombre" class="form-control" />
+                        </div>
+    
+            </div>
+            </form>   
+            <hr>
+
+            <button class="btn btn-warning" type="button" (click)="getRubrica()">Cargar Preguntas</button>
+
+            <div *ngIf="rubrica">
+                    <div class="row separar" >
+
+                            <div class="col-sm-2" >
+                                {{rubrica.item_1}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_1" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2" >
+                                {{rubrica.item_2}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_2" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar" >
+
+                            <div class="col-sm-2" >
+                                {{rubrica.item_3}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_3" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2" >
+                                {{rubrica.item_4}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_4" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar" >
+
+                            <div class="col-sm-2" >
+                                {{rubrica.item_5}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_5" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2" >
+                                {{rubrica.item_6}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_6" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                {{rubrica.item_7}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_7" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2">
+                                {{rubrica.item_8}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_8" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                {{rubrica.item_9}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_9" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2">
+                                {{rubrica.item_10}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_10" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                {{rubrica.item_11}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_11" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2">
+                                {{rubrica.item_12}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_12" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                {{rubrica.item_13}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_13" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2">
+                                {{rubrica.item_14}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_14" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                {{rubrica.item_15}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_15" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2">
+                                {{rubrica.item_16}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_16" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                {{rubrica.item_17}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_17" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2">
+                                {{rubrica.item_18}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_18" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                    </div>
+                    <div class="row separar">
+
+                            <div class="col-sm-2">
+                                {{rubrica.item_19}}:
+                            </div>
+        
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.item_19" class="form-control" placeholder="digite calificacion"
+                                    type="number" />
+                            </div>
+        
+                            <div class="col-sm-2">
+                                <label>Observaciones Finales:</label>
+                            </div>
+        
+                            <div class="col-sm-4">
+                                <textarea [(ngModel)]="proyecto.final" rows="10" cols="40" class="form-control"></textarea>
+                            </div>
+        
+                    </div>
+
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="proyecto.promedio" readonly class="form-control" placeholder="digite calificacion"
+                            type="number" />
+                    </div>
+            </div>
+
+
+
+         
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-3"(click)="update()" >Calificar Proyecto</button>
+                        <button class="btn btn-secondary mr-3"(click)="goBack()" >Volver</button>
+                </div>
+            </div>
+        
+            
+        
+
+
+        </div>
+    </div>
+
+  
+</div>
+</div>

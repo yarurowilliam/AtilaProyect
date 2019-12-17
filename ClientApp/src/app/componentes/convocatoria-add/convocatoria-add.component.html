@@ -1,0 +1,65 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de convocatorias</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Registro de Convocatorias</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="row separar">
+
+                <div class="col-sm-1">
+                    <label>Periodo:</label>
+                </div>
+
+                <div class="col-sm-3">
+                        <input type="text" formControlName="periodo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.periodo.errors }" />
+                        <div *ngIf="submitted && f.periodo.errors" class="invalid-feedback">
+                        <div *ngIf="f.periodo.errors.required">El periodo es requerido</div>
+                        </div>
+                </div>
+
+                <div class="col-sm-1">
+                    <label>Fecha de inicio:</label>
+                </div>
+
+                <div class="col-sm-3">
+                        <input type="date" formControlName="fechaInicio" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fechaInicio.errors }" />
+                        <div *ngIf="submitted && f.fechaInicio.errors" class="invalid-feedback">
+                        <div *ngIf="f.fechaInicio.errors.required">La fecha de inicio es requerida</div>
+                        </div>
+                </div>
+
+                <div class="col-sm-1">
+                    <label>Fecha de finalizacion:</label>
+                </div>
+
+                <div class="col-sm-3">
+                        <input type="date" formControlName="fechaFin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fechaFin.errors }" />
+                        <div *ngIf="submitted && f.fechaFin.errors" class="invalid-feedback">
+                        <div *ngIf="f.fechaFin.errors.required">La fecha de finalizacion es requerida</div>
+                        </div>
+                </div>
+
+                
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >Register</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+</div>

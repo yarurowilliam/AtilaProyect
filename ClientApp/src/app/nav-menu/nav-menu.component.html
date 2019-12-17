@@ -1,0 +1,136 @@
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3 [routerLink]='["/home"]'>EXPOSOFTWARE UNICESAR</h3>
+            </div>
+
+            <ul class="list-unstyled components" *ngIf="isAuthenticated()">
+                <p>Atila Repository BETA</p>
+                <li class="active" *ngIf="isAuthenticatedRole('Administrador')" >
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestionar Asignaturas</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a [routerLink]='["/asignaturaadd"]'>Agregar Asignaturas</a>
+                        </li>
+                        <li>
+                            <a [routerLink]='["/asignaturalist"]'>Gestionar Asignaturas</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]='["/misproyectos"]'>Mis Proyectos</a>
+                </li>
+                <li class="active" *ngIf="isAuthenticatedRole('Administrador')" >
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestionar Docentes</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a [routerLink]='["/docenteadd"]'>Agregar Docente</a>
+                        </li>
+                        <li>
+                            <a [routerLink]='["/docentelist"]'>Ver Docente</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]='["/consultarproyecto"]' *ngIf="isAuthenticatedRole('Administrador')">Asignar Revision</a>
+                </li>
+                <li class="active" *ngIf="isAuthenticatedRole('Administrador')" >
+                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestionar Rubricas</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu1">
+                        <li>
+                            <a [routerLink]='["/rubricaadd"]'>Agregar Rubrica</a>
+                        </li>
+                        <li>
+                            <a [routerLink]='["/rubricalist"]'>Ver Rubrica</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]='["/proyectoaceptado"]' *ngIf="isAuthenticatedRole('Administrador')">Asignar Calificador</a>
+                </li>
+                <li class="active">
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestionar Estudiantes</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li>
+                            <a [routerLink]='["/estudianteadd"]'>Agregar Estudiante</a>
+                        </li>
+                        <li>
+                            <a [routerLink]='["/estudiantelist"]'>Ver Estudiante</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]='["/proyectosrevision"]' *ngIf="isAuthenticatedRole('Revisador')">Proyectos a Revisar</a>
+                </li>
+                <li>
+                    <a [routerLink]='["/convocatorialist"]' *ngIf="isAuthenticatedRole('Administrador')">Convocatorias</a>
+                </li>
+                <li>
+                    <a [routerLink]='["/proyectoscalificacion"]' *ngIf="isAuthenticatedRole('Calificador')">Proyectos a Calificar</a>
+                </li>
+            </ul>
+
+            
+
+            <ul class="list-unstyled components" *ngIf="!isAuthenticated()">
+                    <p>Atila Repository BETA</p>
+                    <p>Logeate para ver las funciones</p>
+                </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://www.unicesar.edu.co/" class="download">UNICESAR WEB</a>
+                </li>
+                <li>
+                    <a href="http://sistemas.unicesar.edu.co/" class="article">ING SISTEMAS WEB</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-success">
+                        <i class="fas fa-align-left"></i>
+                        <span>☰</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto" *ngIf="isAuthenticated()">
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="logout()" title="Logout">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" [routerLink]='["/home"]'>USUARIO: {{ userName() }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" [routerLink]='["/home"]'>NOMBRE: {{ nameUser() }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" [routerLink]='["/home"]'>ROL: {{ rolUser() }}</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav ml-auto" *ngIf="!isAuthenticated()">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" [routerLink]='["/logear"]'>Login</a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+			<router-outlet></router-outlet>
+            
+        </div>
+    </div>
+
+</body>
+

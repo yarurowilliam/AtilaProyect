@@ -1,0 +1,45 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:#1CD878; color: white;">Gestion de Convocatorias</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Mis Convocatorias</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+        <table class='table table-striped' *ngIf='convocatorias && convocatorias.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>Periodo</th>           
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Cerrar</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let convocatoria of convocatorias">                
+                <th >{{ convocatoria.periodo }}</th>
+                <td>{{ convocatoria.fechaInicio }}</td>
+                <td>{{ convocatoria.fechaFin }}</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="open()" >Nueva Convocatoria</button>
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

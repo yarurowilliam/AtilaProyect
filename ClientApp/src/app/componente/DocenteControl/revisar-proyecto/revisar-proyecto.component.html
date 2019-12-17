@@ -1,0 +1,223 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de Proyectos</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Revision de proyectos</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Lea atentamente y verifique!
+            </div>
+
+            <div *ngIf="proyecto">  
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Codigo:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input [(ngModel)]="proyecto.codigo" readonly="readonly" class="form-control" placeholder="digite titulo"
+                    type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Titulo:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="proyecto.titulo" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+                
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Introduccion:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <textarea [(ngModel)]="proyecto.introduccion" readonly="readonly" rows="10" cols="40" class="form-control"></textarea>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Objetivos:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <textarea [(ngModel)]="proyecto.objetivos" readonly="readonly" rows="10" cols="40" class="form-control"></textarea>
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Metodologias:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                        <textarea [(ngModel)]="proyecto.metodologia" readonly="readonly" rows="10" cols="40" class="form-control"></textarea>
+                    </div>
+    
+                    <div class="col-sm-2">
+                        <label>Resultados:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                        <textarea [(ngModel)]="proyecto.resultados" readonly="readonly" rows="10" cols="40" class="form-control"></textarea>
+                    </div>
+    
+                </div>
+
+                <div class="row separar">
+
+                        <div class="col-sm-2">
+                            <label>Concluciones:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                            <textarea [(ngModel)]="proyecto.concluciones" readonly="readonly" rows="10" cols="40" class="form-control"></textarea>
+                        </div>
+
+                        <div class="col-sm-2">
+                                <label>Referencias:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                <textarea [(ngModel)]="proyecto.referencias" readonly="readonly" rows="10" cols="40" class="form-control"></textarea>
+                            </div>
+        
+                </div>
+
+                <hr>                
+                
+                <div class="row separar">
+
+                        <div class="col-sm-2">
+                                <label>Asignatura Codigo:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.codasig" readonly="readonly" class="form-control" placeholder="digite titulo"
+                                    type="text" />
+                            </div>
+            
+                            <div class="col-sm-2">
+                                <label>Nombre Asignatura:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.nameasig" readonly="readonly" class="form-control" placeholder="digite titulo"
+                                    type="text" />
+                             </div>
+        
+                </div>
+
+                <div class="row separar">
+
+                        <div class="col-sm-2">
+                                <label>Estudiante #1 Identificacion:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.codalum1" readonly="readonly" class="form-control" placeholder="digite titulo"
+                                    type="text" />
+                            </div>
+                            
+                            
+
+                            <div class="col-sm-2">
+                                <label>Nombre Estudiante:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                    <input [(ngModel)]="proyecto.namealum1" readonly="readonly" class="form-control" placeholder="digite titulo"
+                                    type="text" />
+                            </div>
+        
+                </div>
+
+                <div class="row separar">
+
+                    <div class="col-sm-2">
+                            <label>Estudiante #2 Identificacion:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                                <input [(ngModel)]="proyecto.codalum2" readonly="readonly" class="form-control" placeholder="NO INGRESADO"
+                                type="text" />
+                        </div>
+                        
+                        
+
+                        <div class="col-sm-2">
+                            <label>Nombre Estudiante:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                                <input [(ngModel)]="proyecto.namealum2" readonly="readonly" class="form-control" placeholder="NO INGRESADO"
+                                type="text" />
+                        </div>
+    
+            </div>
+
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                        <label>Estudiante #3 Identificacion:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="proyecto.codalum3" readonly="readonly" class="form-control" placeholder="NO INGRESADO"
+                            type="text" />
+                    </div>
+                    
+                    
+
+                    <div class="col-sm-2">
+                        <label>Nombre Estudiante:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="proyecto.namealum3" readonly="readonly" class="form-control" placeholder="NO INGRESADO"
+                            type="text" />
+                    </div>
+
+        </div>
+
+        <div class="row separar">
+                <div class="col-sm-12">
+                        <label>Observaciones:</label>
+                </div>
+
+                <div class="col-sm-12">
+                        <textarea [(ngModel)]="proyecto.observacion" rows="10" cols="40" class="form-control"></textarea>
+                </div>
+        </div>
+
+        <div class="row separar">
+                <div class="col-sm-2">
+                <label>Revisión:</label>
+                    </div>
+                    <div class="col-sm-4">
+                            <select [(ngModel)]="proyecto.estado" class="form-control">
+                                    <option value="Espera">Espera</option>
+                                    <option value="Aceptado">Aceptado</option>
+                                    <option value="Rechazado">Rechazado</option>
+                        </select>
+                    </div>
+        </div>
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="update()" >Revisar</button>
+                        <button class="btn btn-secondary" type="reset" (click)="back()">Volver</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>

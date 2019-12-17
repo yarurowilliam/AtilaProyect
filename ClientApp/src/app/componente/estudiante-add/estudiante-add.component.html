@@ -1,0 +1,77 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de estudiantes</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Registro de Estudiantes</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Identificacion:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" formControlName="identificacion" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.identificacion.errors }" />
+                    <div *ngIf="submitted && f.identificacion.errors" class="invalid-feedback">
+                      <div *ngIf="f.identificacion.errors.required">La identificacion es requerida</div>
+                      <div *ngIf="f.identificacion.errors.minlength">Codigo requiere minimo 3 caracteres</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Correo:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" formControlName="correo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" />
+                    <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+                    <div *ngIf="f.correo.errors.required">El correo es requerido</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Apellidos:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" formControlName="apellidos" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }" />
+                    <div *ngIf="submitted && f.apellidos.errors" class="invalid-feedback">
+                      <div *ngIf="f.apellidos.errors.required">Los apellidos son requeridos</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Nombres:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" formControlName="nombres" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombres.errors }" />
+                    <div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
+                      <div *ngIf="f.nombres.errors.required">Los nombres son requeridos</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >Agregar</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Limpiar</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+</div>

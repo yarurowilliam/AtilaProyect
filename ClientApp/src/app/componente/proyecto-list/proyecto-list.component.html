@@ -1,0 +1,71 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:#1CD878; color: white;">Gestion de Proyectos</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Mis Proyectos</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-4">
+                    <input [(ngModel)]="searchText" type="text" style="visibility:hidden" class="form-control" placeholder="Consultar por ID y Nombre">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='proyectos && proyectos.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Codigo</th>
+                    <th>Titulo</th>
+                    <th>Codigo Asignatura</th>
+                    <th>Nombre Asignatura</th>
+                    <th>ID Docente</th>
+                    <th>Docente</th>
+                    <th>Autor #1</th>
+                    <th>Autor #2</th>
+                    <th>Autor #3</th>
+                    <th>Estado</th>
+                    <th>Pendon</th>
+                    <th>Motivo</th>
+                    <th>Calificacion</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let proyecto of proyectos | filtroMisProyectos:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{proyecto.codigo}}</td>
+                <td>{{proyecto.titulo}}</td>
+                <td>{{proyecto.codasig}}</td>
+                <td>{{proyecto.nameasig}}</td>
+                <td>{{proyecto.coddoc}}</td>
+                <td>{{proyecto.namedoc}}</td>
+                <td>{{proyecto.namealum1}}</td>
+                <td>{{proyecto.namealum2}}</td>
+                <td>{{proyecto.namealum3}}</td>
+                <th style="color: gray;">{{proyecto.estado}}</th>
+                <td><span *ngIf="proyecto.estado==='Aceptado';"><b>Subir Pendon</b></span></td>
+                <td><span *ngIf="proyecto.estado==='Rechazado';"><b>{{proyecto.observacion}}</b></span></td>
+                <td><span *ngIf="proyecto.estado==='Calificado';"><b>{{proyecto.promedio}}</b></span></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="open()" >Nuevo Proyecto</button>
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

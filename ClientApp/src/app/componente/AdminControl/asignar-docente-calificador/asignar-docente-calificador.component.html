@@ -1,0 +1,69 @@
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de Cargos</div>
+<div class="panel-body">
+    <div class="row separar">
+        
+        <div class="col-sm-12">
+            <h1 class="textomod">Asignar proyecto a Docente</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Cuidadito!
+            </div>
+            <div *ngIf="proyecto">  
+            <div class="row separar">
+                <div class="col-sm-2">
+                        <label>Codigo Proyecto:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="proyecto.codigo" readonly="readonly" class="form-control" placeholder="Cargando ID..."
+                        type="text" />
+                </div>
+            </div>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                            <label>Docente Codigo:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                            <input [(ngModel)]="proyecto.idcalificador" type="text" readonly formControlName="idcalificador" class="form-control" (dblclick)="openModalDocente()" [ngClass]="{ 'is-invalid':  f.idcalificador.errors }" />
+                            <div *ngIf="submitted && f.idcalificador.errors" class="invalid-feedback">
+                                <div *ngIf="f.idcalificador.errors.required">El codigo es requerida</div>
+                            </div>
+                          <hr>
+                         <button class="btn btn-success" type="button" (click)="openModalDocente()">Buscar</button>
+                        
+                        </div>
+        
+                        <div class="col-sm-2">
+                            <label>Nombre Docente:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                            <input [(ngModel)]="proyecto.namecalificador" type="text" readonly formControlName="namecalificador" class="form-control" />
+                        </div>
+    
+            </div>
+
+        </form>    
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-3"(click)="update()" >Asignar Proyecto</button>
+                        <button class="btn btn-secondary mr-3"(click)="goBack()" >Volver</button>
+                </div>
+            </div>
+        
+            
+        
+
+
+        </div>
+    </div>
+
+  
+</div>
+</div>

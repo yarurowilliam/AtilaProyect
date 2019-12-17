@@ -1,0 +1,44 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+        <div class="panel-heading" style="background-color: #1CD878; color: white;">Gestion de Asignaturas</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Editar/Eliminar Asignatura</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-warning">
+                        <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+                    </div>
+                    <div *ngIf="asignatura"> 
+
+                    <div class="row separar">
+                        <div class="col-sm-2">
+                            <label>Codigo:</label>
+                        </div>
+                        <div class="col-sm-4">
+                                <input [(ngModel)]="asignatura.id" readonly="readonly" class="form-control" placeholder="digite titulo"
+                                type="text" />
+                        </div>
+        
+                        <div class="col-sm-2">
+                            <label>Nombre Asignatura:</label>
+                        </div>
+                        <div class="col-sm-4">
+                                <input [(ngModel)]="asignatura.nombreAsignatura" class="form-control" placeholder="digite titulo"
+                                type="text" />
+                        </div>
+        
+                    </div>
+
+                    </div>
+
+                </div>
+                <div class="row botonesayuda">
+                        <div class="col-sm-12">
+                                <button class="btn btn-success mr-1" (click)="update()" >Actualizar</button>
+                                <button class="btn btn-secondary" type="reset" (click)="goBack()">Volver</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>

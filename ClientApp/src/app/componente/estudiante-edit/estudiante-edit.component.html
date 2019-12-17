@@ -1,0 +1,70 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de estudiante</div>
+<div class="panel-body">
+    <div class="row separar">
+        
+        <div class="col-sm-12">
+            <h1 class="textomod">Editar y Eliminar Estudiante</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Cuidadito!
+            </div>
+            <div *ngIf="estudiante">   
+            <div class="row separar">
+                <div class="col-sm-2">
+                        <label>Identificacion:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="estudiante.identificacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Correo:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input [(ngModel)]="estudiante.correo" class="form-control" placeholder="digite correo"
+                    type="text" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Apellidos:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="estudiante.apellidos" class="form-control" placeholder="digite apellidos"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Nombres:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="estudiante.nombres" class="form-control" placeholder="digite nombres"
+                        type="text" />
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-3"(click)="update()" >Modificar</button>
+                        <button class="btn btn-danger"(click)="delete()" >Eliminar</button>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+</div>

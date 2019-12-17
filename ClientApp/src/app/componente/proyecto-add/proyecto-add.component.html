@@ -1,0 +1,239 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de Proyectos</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Registro de proyectos</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Codigo:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" formControlName="codigo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" />
+                    <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
+                      <div *ngIf="f.codigo.errors.required">El codigo es requerida</div>
+                      <div *ngIf="f.codigo.errors.minlength">Codigo requiere minimo 3 caracteres</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Titulo:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" formControlName="titulo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.titulo.errors }" />
+                    <div *ngIf="submitted && f.titulo.errors" class="invalid-feedback">
+                      <div *ngIf="f.titulo.errors.required">El titulo es requerido</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Introduccion:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <textarea formControlName="introduccion" rows="10" cols="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.introduccion.errors }"></textarea>
+                    <div *ngIf="submitted && f.introduccion.errors" class="invalid-feedback">
+                      <div *ngIf="f.introduccion.errors.required">La introduccion es requerido</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Objetivos:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <textarea formControlName="objetivos" rows="10" cols="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.objetivos.errors }"></textarea>
+                        <div *ngIf="submitted && f.objetivos.errors" class="invalid-feedback">
+                          <div *ngIf="f.objetivos.errors.required">El objetivos es requerido</div>
+                        </div>
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Metodologias:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                        <textarea formControlName="metodologia" rows="10" cols="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.metodologia.errors }"></textarea>
+                        <div *ngIf="submitted && f.metodologia.errors" class="invalid-feedback">
+                          <div *ngIf="f.metodologia.errors.required">Las metodologias son requeridas</div>
+                        </div>
+                    </div>
+    
+                    <div class="col-sm-2">
+                        <label>Resultados:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                            <textarea formControlName="resultados" rows="10" cols="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.resultados.errors }"></textarea>
+                            <div *ngIf="submitted && f.resultados.errors" class="invalid-feedback">
+                              <div *ngIf="f.resultados.errors.required">Los resultados son requeridos</div>
+                            </div>
+                    </div>
+    
+                </div>
+
+                <div class="row separar">
+
+                        <div class="col-sm-2">
+                            <label>Concluciones:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                            <textarea formControlName="concluciones" rows="5" cols="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.concluciones.errors }"></textarea>
+                            <div *ngIf="submitted && f.concluciones.errors" class="invalid-feedback">
+                              <div *ngIf="f.concluciones.errors.required">Las concluciones son requeridas</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                                <label>Referencias:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                <textarea formControlName="referencias" rows="5" cols="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.referencias.errors }"></textarea>
+                                <div *ngIf="submitted && f.referencias.errors" class="invalid-feedback">
+                                  <div *ngIf="f.referencias.errors.required">Las referencias son requeridas</div>
+                                </div>
+                            </div>
+        
+                </div>
+
+                <hr>                
+                
+                <div class="row separar">
+
+                        <div class="col-sm-2">
+                                <label>Asignatura Codigo:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                <input type="text" readonly formControlName="codasig" class="form-control" (blur)="buscarAsignatura()" (dblclick)="openModalAsignatura()" [ngClass]="{ 'is-invalid':  f.codasig.errors }" />
+                                <div *ngIf="submitted && f.codasig.errors" class="invalid-feedback">
+                                    <div *ngIf="f.codasig.errors.required">El codigo es requerida</div>
+                                </div>
+                              <hr>
+                             <button class="btn btn-success" type="button" (click)="openModalAsignatura()">Buscar</button>
+                            
+                            </div>
+            
+                            <div class="col-sm-2">
+                                <label>Nombre Asignatura:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                <input type="text" readonly formControlName="nameasig" class="form-control" />
+                            </div>
+        
+                </div>
+
+                <div class="row separar">
+
+                        <div class="col-sm-2">
+                                <label>Estudiante #1 Identificacion:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                <input type="text" formControlName="codalum1" readonly class="form-control" (blur)="buscarEstudiante()" (dblclick)="openModalEstudiante()" [ngClass]="{ 'is-invalid':  f.codalum1.errors }" />
+                                <div *ngIf="submitted && f.codalum1.errors" class="invalid-feedback">
+                                  <div *ngIf="f.codalum1.errors.required">La Identidad del Estudiante es requerida</div>
+                                </div>
+                                <hr>
+                                <button class="btn btn-success" type="button" (click)="openModalEstudiante()">Buscar</button>                          
+                            </div>
+                            
+                            
+
+                            <div class="col-sm-2">
+                                <label>Nombre Estudiante:</label>
+                            </div>
+            
+                            <div class="col-sm-4">
+                                <input type="text" readonly formControlName="namealum1" class="form-control" />
+                            </div>
+        
+                </div>
+
+                <div class="row separar">
+
+                    <div class="col-sm-2">
+                            <label>Estudiante #2 Identificacion:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                            <input type="text" formControlName="codalum2" readonly class="form-control" (blur)="buscarEstudiante()" (dblclick)="openModalEstudiante()" [ngClass]="{ 'is-invalid':  f.codalum2.errors }" />
+                            <div *ngIf="submitted && f.codalum2.errors" class="invalid-feedback">
+                              <div *ngIf="f.codalum2.errors.required">La Identidad del Estudiante es requerida</div>
+                            </div>
+                            <hr>
+                            <button class="btn btn-success" type="button" (click)="openModalEstudiante2()">Buscar</button>                          
+                        </div>
+                        
+                        
+
+                        <div class="col-sm-2">
+                            <label>Nombre Estudiante:</label>
+                        </div>
+        
+                        <div class="col-sm-4">
+                            <input type="text" readonly formControlName="namealum2" class="form-control" />
+                        </div>
+    
+            </div>
+
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                        <label>Estudiante #3 Identificacion:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                        <input type="text" formControlName="codalum3" readonly class="form-control" (blur)="buscarEstudiante()" (dblclick)="openModalEstudiante()" [ngClass]="{ 'is-invalid':  f.codalum3.errors }" />
+                        <div *ngIf="submitted && f.codalum3.errors" class="invalid-feedback">
+                          <div *ngIf="f.codalum3.errors.required">La Identidad del Estudiante es requerida</div>
+                        </div>
+                        <hr>
+                        <button class="btn btn-success" type="button" (click)="openModalEstudiante3()">Buscar</button>                          
+                    </div>
+                    
+                    
+
+                    <div class="col-sm-2">
+                        <label>Nombre Estudiante:</label>
+                    </div>
+    
+                    <div class="col-sm-4">
+                        <input type="text" readonly formControlName="namealum3" class="form-control" />
+                    </div>
+
+        </div>
+
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >Register</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+</div>

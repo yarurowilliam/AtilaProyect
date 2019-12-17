@@ -1,0 +1,259 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878; color: white;">Gestion de Rubricas</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Registro de Rubrica</h1>
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row separar panel-heading">
+                <div class="col-sm-12">
+                    <label>Codigo de Rubrica:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.codigo" formControlName="codigo" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" placeholder="Digite codigo de Rubrica" type="text" />
+                <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
+                    <div *ngIf="f.codigo.errors.required">Codigo es requerido</div>
+                    <div *ngIf="f.codigo.errors.minlength">Codigo requiere minimo 3 caracteres</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Titulo de Rubrica:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.titulo" formControlName="titulo" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.titulo.errors }" placeholder="Digite titulo de Rubrica"
+                    type="text" />
+                <div *ngIf="submitted && f.titulo.errors" class="invalid-feedback">
+                    <div *ngIf="f.titulo.errors.required">Titulo es requerido</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #1:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_1" formControlName="item_1" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_1.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_1.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_1.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #2:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_2" formControlName="item_2" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_2.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_2.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_2.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #3:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_3" formControlName="item_3" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_3.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_3.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_3.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #4:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_4" formControlName="item_4" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_4.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_4.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_4.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #5:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_5" formControlName="item_5" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_5.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_5.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_5.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #6:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_6" formControlName="item_6" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_6.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_6.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_6.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #7:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_7" formControlName="item_7" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_7.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_7.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_7.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #8:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_8" formControlName="item_8" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_8.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_8.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_8.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #9:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_9" formControlName="item_9" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_9.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_9.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_9.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #10:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_10" formControlName="item_10" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_10.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_10.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_10.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #11:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_11" formControlName="item_11" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_11.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_11.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_11.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #12:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_12" formControlName="item_12" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_12.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_12.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_12.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #13:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_13" formControlName="item_13" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_13.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_13.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_13.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #14:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_14" formControlName="item_14" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_14.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_14.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_14.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #15:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_15" formControlName="item_15" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_15.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_15.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_15.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #16:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_16" formControlName="item_16" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_16.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_16.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_16.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #17:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_17" formControlName="item_17" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_17.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_17.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_17.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #18:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_18" formControlName="item_18" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_18.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_18.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_18.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <label>Pregunta #19:</label>
+                </div>
+                <div class="col-sm-12">
+                    <input [(ngModel)]="rubrica.item_19" formControlName="item_19" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.item_19.errors }" placeholder="Digite la pregunta"
+                    type="text" />
+                <div *ngIf="submitted && f.item_19.errors" class="invalid-feedback">
+                    <div *ngIf="f.item_19.errors.required">La pregunta es requerida</div>
+                </div>
+                </div>
+            </div>
+
+            
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                    <button class="btn btn-success mr-1" >Agregar</button> 
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Limpiar</button>
+                </div>
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
+</div>

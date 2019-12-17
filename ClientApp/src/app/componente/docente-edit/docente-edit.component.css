@@ -1,0 +1,29 @@
+.separar {
+    padding: 5px;
+}
+
+.botonesayuda {
+    padding: 5px;
+    text-align: center;
+}
+
+.panel-heading {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.textomod {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.fondoinicio {
+    background: url(C:\Users\willi\Desktop\AtilaV1\ClientApp\FondoInicio.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

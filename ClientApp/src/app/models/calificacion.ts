@@ -1,0 +1,29 @@
+export class Calificacion {
+    codigo:string;
+    titulo:string;
+    docid:string;
+    docname:string;
+    rubricacodigo:string;
+    rubricanombre:string;
+    item_1:number;
+    item_2:number;
+    item_3:number;
+    item_4:number;
+    item_5:number;
+    item_6:number;
+    item_7:number;
+    item_8:number;
+    item_9:number;
+    item_10:number;
+    item_11:number;
+    item_12:number;
+    item_13:number;
+    item_14:number;
+    item_15:number;
+    item_16:number;
+    item_17:number;
+    item_18:number;
+    item_19:number;
+    promedio:number;
+    observacion:string;
+}
